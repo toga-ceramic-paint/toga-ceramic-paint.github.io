@@ -37,7 +37,7 @@
     // 計測の重複防止:Stripeから渡される決済ID(session_id)がある時だけ、1決済につき1回だけ計測する
     var params = new URLSearchParams(window.location.search);
     var sessionId = params.get('session_id') || '';
-    var isValidSession = /^cs_(live|test)_[A-Za-z0-9]+$/.test(sessionId);
+    var isValidSession = /^cs_live_[A-Za-z0-9]+$/.test(sessionId);
     var storageKey = 'toga_tracked_' + sessionId;
     var alreadyTracked = false;
     try { alreadyTracked = window.localStorage.getItem(storageKey) === '1'; } catch (e) {}
